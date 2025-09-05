@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Space Adventure</title>
+  <meta name="description" content="Steer your shuttle, dodge monsters, collect coins, and reach the sun! A free children’s game built with Python + Pygame." />
+  <link rel="preload" as="image" href="title-image.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Hero section with responsive title artwork -->
+  <header class="hero hero-with-image">
+    <div class="hero-inner">
+      <h1>Space Adventure</h1>
+      <p class="tagline">Steer the shuttle, dodge monsters, collect coins, and reach the sun!</p>
+      <div class="cta-row">
+        <a class="btn primary" href="../game/dist/SpaceAdventure.exe">Download for Windows</a>
+        <a class="btn ghost" href="../game/space_adventure.py">Run from source</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="card">
+      <h2>How to Play</h2>
+      <ul class="bullets">
+        <li>Arrow keys to move the shuttle.</li>
+        <li>Avoid monsters; they wander then chase.</li>
+        <li>Collect coins for points and reach the bright sun to win.</li>
+        <li>Three lives; difficulty ramps up over time.</li>
+      </ul>
+    </section>
+
+    <section class="grid-two">
+      <article class="card">
+        <h3>Run on Windows</h3>
+        <ol class="steps">
+          <li>Install Python 3.10+ and Pygame: <code>pip install pygame</code>.</li>
+          <li>Run the game: <code>python ../game/space_adventure.py</code>.</li>
+          <li>Enter name and age, then play with the arrow keys.</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h3>Build an EXE</h3>
+        <ol class="steps">
+          <li>Install PyInstaller: <code>pip install pyinstaller</code>.</li>
+          <li>From the game folder, build: <code>pyinstaller --noconsole --onefile --name SpaceAdventure --add-data "assets;assets" space_adventure.py</code></li>
+          <li>Find the executable at <code>game/dist/SpaceAdventure.exe</code>.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="shots card">
+      <h2>Screenshots</h2>
+      <div class="shot-grid">
+        <img src="title-image.jpg" alt="Space Adventure title artwork" />
+        <!-- Add more screenshots here if desired -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with Python + Pygame. Free to play.</p>
+  </footer>
+</body>
+</html>
