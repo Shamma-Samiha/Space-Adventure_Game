@@ -76,6 +76,46 @@ html,body{
 }
 .btn:hover{ filter:brightness(1.06); transform:translateY(-1px); }
 
+/* Form styles */
+.player-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(73, 169, 255, 0.2);
+}
+
+.player-form .btn {
+  align-self: center;
+  margin-top: 8px;
+}
+
 /* Main layout */
 .content{
   max-width:1100px;

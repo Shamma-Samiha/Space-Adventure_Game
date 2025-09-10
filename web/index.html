@@ -6,7 +6,8 @@
   <title>Space Adventure</title>
   <meta name="description" content="Steer your shuttle, dodge monsters, collect coins, and reach the sun! A free children’s game built with Python + Pygame." />
   <link rel="preload" as="image" href="title-image.jpg" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <!-- Hero section with responsive title artwork -->
@@ -14,6 +15,17 @@
     <div class="hero-inner">
       <h1>Space Adventure</h1>
       <p class="tagline">Steer the shuttle, dodge monsters, collect coins, and reach the sun!</p>
+      <form id="player-form" class="player-form">
+        <div class="form-group">
+          <label for="name">Pilot Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="99" required>
+        </div>
+        <button type="submit" class="btn primary">Start Adventure</button>
+      </form>
       <div class="cta-row">
         <a class="btn primary" href="../game/dist/SpaceAdventure.exe">Download for Windows</a>
         <a class="btn ghost" href="../game/space_adventure.py">Run from source</a>

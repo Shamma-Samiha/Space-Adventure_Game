@@ -1,18 +1,46 @@
-# Space Adventure (Pygame)
-A children’s space game: arrow-key shuttle, parallax stars, coins, monsters that chase, 3 lives, reach the sun.
+# 🚀Space Adventure🚀
 
-## Run (Windows)
-1) Python 3.10+  
-2) pip install pygame  
-3) cd game && python space_adventure.py
+👨🏼‍🚀Steer your shuttle, dodge monsters, collect coins, and reach the sun! A free children’s game built with Python + Pygame.☄️
 
-## Build Windows EXE
-From game/:  
-pyinstaller --noconsole --onefile --name SpaceAdventure --add-data "assets;assets" space_adventure.py
+## How to Play 🎮
 
-The exe appears in dist/SpaceAdventure.exe.
+- Use arrow keys to move the shuttle.
+- Avoid monsters; they wander then chase.
+- Collect coins for points and reach the bright sun to win.
+- You have three lives; difficulty ramps up over time.
 
-## Publish
-- Create a GitHub release and upload the exe.  
-- Put web/ contents in the repo and enable GitHub Pages to serve from /web (or /docs).  
-- Link the “Download for Windows” button to the Release URL.
+## Running the Game
+
+### Run Locally
+
+1. Install Python 3.10+ and Pygame:
+   ```
+   pip install pygame
+   ```
+2. Run the game:
+   ```
+   python space_adventure.py
+   ```
+3. Enter your name and age in the game window, then play with the arrow keys.
+
+### Build an EXE
+
+1. Install PyInstaller:
+   ```
+   pip install pyinstaller
+   ```
+2. From the game folder, build:
+   ```
+   pyinstaller --noconsole --onefile --name SpaceAdventure --add-data "assets;assets" space_adventure.py
+   ```
+3. Find the executable at `game/dist/SpaceAdventure.exe`.
+
+## Game View 🧩
+
+![Game View 1](assets/title-image.png)
+![Game View 2](assets/sun.png)
+![Game View 3](assets/shuttle.png)
+
+---
+
+Made with Python + Pygame.
