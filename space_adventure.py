@@ -39,6 +39,9 @@ def load_image(name, scale=None):
         img = pygame.transform.smoothscale(img, scale)
     return img
 
+def get_window_size(screen):
+    return screen.get_width(), screen.get_height()
+
 class Parallax:
     def __init__(self, screen):
         self.screen = screen
@@ -221,20 +224,21 @@ def start_screen(screen):
                         age += ch
         # draw UI
         screen.fill((16,20,34))
-        text(screen, "SPACE ADVENTURE", WIN_W//2, 120, 48, WHITE, True)
-        text(screen, "Pilot Name:", WIN_W//2-180, 220, 26)
+        w, h = get_window_size(screen)
+        text(screen, "SPACE ADVENTURE", w//2, int(h*0.22), 48, WHITE, True)
+        text(screen, "Pilot Name:", w//2-180, int(h*0.4), 26)
         # name field
-        name_rect = pygame.Rect(WIN_W//2-20, 206, 260, 36)
+        name_rect = pygame.Rect(w//2-20, int(h*0.38), 260, 36)
         pygame.draw.rect(screen, (46,64,110), name_rect, border_radius=8)
         text(screen, name or "Explorer", name_rect.centerx, name_rect.centery-12, 24, WHITE, True)
 
-        text(screen, "Age:", WIN_W//2-180, 270, 26)
-        age_rect = pygame.Rect(WIN_W//2-20, 256, 260, 36)
+        text(screen, "Age:", w//2-180, int(h*0.49), 26)
+        age_rect = pygame.Rect(w//2-20, int(h*0.47), 260, 36)
         pygame.draw.rect(screen, (46,64,110), age_rect, border_radius=8)
         text(screen, age or "8", age_rect.centerx, age_rect.centery-12, 24, WHITE, True)
 
         hint = "Tab to switch fields • Enter to Start • Arrow keys to move"
-        text(screen, hint, WIN_W//2, 340, 20, (200,220,255), True)
+        text(screen, hint, w//2, int(h*0.62), 20, (200,220,255), True)
 
         # focus ring
         ring = name_rect if active=="name" else age_rect
@@ -246,7 +250,7 @@ def start_screen(screen):
 def main():
     global SPAWN_MON_MS, SPAWN_COIN_MS
     pygame.init()
-    screen = pygame.display.set_mode((WIN_W, WIN_H))
+    screen = pygame.display.set_mode((WIN_W, WIN_H), pygame.RESIZABLE)
     pygame.display.set_caption(TITLE)
     clock = pygame.time.Clock()
 
@@ -267,6 +271,8 @@ def main():
         dt = clock.tick(FPS)
         for e in pygame.event.get():
             if e.type == pygame.QUIT: running = False
+            elif e.type == pygame.VIDEORESIZE:
+                screen = pygame.display.set_mode((e.w, e.h), pygame.RESIZABLE)
 
         keys = pygame.key.get_pressed()
         player.update(keys, dt)
@@ -317,8 +323,9 @@ def main():
         parallax.draw()
 
         # stylized mid-ground planets (only if no mid layer art covers them)
-        pygame.draw.circle(screen, (65,85,140), (200,140), 80, 0)
-        pygame.draw.circle(screen, (88,50,130), (720,120), 60, 0)
+        w, h = get_window_size(screen)
+        pygame.draw.circle(screen, (65,85,140), (int(w*0.21), int(h*0.26)), 80, 0)
+        pygame.draw.circle(screen, (88,50,130), (int(w*0.75), int(h*0.22)), 60, 0)
 
         draw_sun(screen, max(100, sun_screen_x), sun_y)
 
@@ -338,11 +345,11 @@ def main():
     # End screen
     screen.fill(DARK)
     if win:
-        text(screen, "You reached the Sun! Victory!", WIN_W//2, WIN_H//2-10, 36, WHITE, True); score += 100
+        text(screen, "You reached the Sun! Victory!", w//2, h//2-10, 36, WHITE, True); score += 100
     else:
-        text(screen, "Game Over", WIN_W//2, WIN_H//2-10, 36, WHITE, True)
-    text(screen, f"Final Score: {score}", WIN_W//2, WIN_H//2+40, 28, HUD, True)
-    text(screen, "Press Enter to play again, Esc to quit", WIN_W//2, WIN_H//2+90, 22, (200,220,255), True)
+        text(screen, "Game Over", w//2, h//2-10, 36, WHITE, True)
+    text(screen, f"Final Score: {score}", w//2, h//2+40, 28, HUD, True)
+    text(screen, "Press Enter to play again, Esc to quit", w//2, h//2+90, 22, (200,220,255), True)
     pygame.display.flip()
 
     again = False
