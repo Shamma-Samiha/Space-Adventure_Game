@@ -37,9 +37,9 @@
 
 ## Game View 🧩
 
-![Game View 1](assets/title-image.png)
-![Game View 2](assets/sun.png)
-![Game View 3](assets/shuttle.png)
+![Game View 1](assets/ss1.png)
+![Game View 2](assets/ss2.png)
+![Game View 3](assets/ss3.png)
 
 ---
 
